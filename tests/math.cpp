@@ -3,4 +3,4 @@
 
 using namespace smtl;
 
-static_assert(std::is_same<multiply<2>::apply<3>::value, 6);
+static_assert(multiply<2>::apply<3>::value == 6);
