@@ -6,14 +6,14 @@
 namespace smtl {
 
 
-template<typename Input, typename op, typename Output=typename Input::empty_type>
+template<typename Input, typename op, typename Output=vector<>>
 struct select;
 
 template<typename T, T first, T... rest, typename op, T... output>
-struct select<vector<T, first, rest...>, op, vector<T, output...>>
+struct select<vector<first, rest...>, op, vector<output...>>
 {
-    using value = typename select<vector<T, rest...>,
-            op, vector<T, output...,
+    using value = typename select<vector<rest...>,
+            op, vector<output...,
                         op::template apply<first>::value
                         >
             >::value;
@@ -22,9 +22,9 @@ struct select<vector<T, first, rest...>, op, vector<T, output...>>
 
 // terminator
 template<typename T, typename op, T... output>
-struct select<vector<T>, op, vector<T, output...>>
+struct select<vector<>, op, vector<output...>>
 {
-    using value = vector<T, output...>;
+    using value = vector<output...>;
 };
 
 }

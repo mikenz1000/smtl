@@ -3,11 +3,8 @@
 
 namespace smtl {
 
-template<typename T, T... i>
-
+template<auto... i>
 struct vector {
-    // equivalent vector with no elements - used to allow referring code to determine empty_type without knowing T
-    using empty_type = vector<T>;
 };
 
 }

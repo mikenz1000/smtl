@@ -9,14 +9,14 @@ struct concat{};
 
 // match when sought at beginning of list
 template<typename T, T... allA, T firstB, T... restB>
-struct concat<vector<T, allA...>, vector<T, firstB, restB...>> {
-    using value = typename concat<vector<T, allA..., firstB>, vector<T, restB...>>::value;
+struct concat<vector<allA...>, vector<firstB, restB...>> {
+    using value = typename concat<vector<allA..., firstB>, vector<restB...>>::value;
 };
 
 // terminator
 template<typename T, T... allA>
-struct concat<vector<T, allA...>, vector<T>> {
-    using value = vector<T, allA...>;
+struct concat<vector<allA...>, vector<>> {
+    using value = vector<allA...>;
 };
 
 }

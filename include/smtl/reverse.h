@@ -4,17 +4,17 @@
 
 namespace smtl {
 
-template<typename Input, typename Output = typename Input::empty_type>
+template<typename Input, typename Output = vector<>>
 struct reverse{};
 
 template<typename T, T first, T... input, T...output>
-struct reverse<vector<T, first, input...>, vector<T, output...>> {
-    using value = typename reverse<vector<T, input...>, vector<T, first, output...>>::value;
+struct reverse<vector<first, input...>, vector<output...>> {
+    using value = typename reverse<vector<input...>, vector<first, output...>>::value;
 };
 
 template<typename T, T...output>
-struct reverse<vector<T>, vector<T, output...>> {
-    using value = vector<T, output...>;
+struct reverse<vector<>, vector<output...>> {
+    using value = vector<output...>;
 };
 
 }

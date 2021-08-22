@@ -3,4 +3,4 @@
 
 using namespace smtl;
 
-static_assert(std::is_same<vector<int, 1,2,3>, distinct<vector<int, 1,1,2,3>>::value>::value);
+static_assert(std::is_same<vector<1,2,3>, distinct<vector<1,1,2,3>>::value>::value);
