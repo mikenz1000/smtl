@@ -1,5 +1,5 @@
 #include <assert.h>
-#include "distinct.h"
+#include "smtl/distinct.h"
 
 using namespace smtl;
 

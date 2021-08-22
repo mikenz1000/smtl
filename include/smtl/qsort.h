@@ -2,7 +2,7 @@
 #define SMTL_QSORT_H
 
 #include "vector.h"
-#include "filter_ltgte.h"
+#include "where.h"
 #include "concat.h"
 
 namespace smtl {
@@ -31,10 +31,10 @@ struct qsort<vector<first, a...>> {
 
     using value = typename concat<
             typename concat<
-            typename qsort<typename LT<first, vector<a...>>::value>::value,
+            typename qsort<typename where<vector<a...>, lt<first>>::value>::value,
             vector<first>
             >::value,
-            typename qsort<typename GTE<first, vector<a...>>::value>::value
+            typename qsort<typename where<vector<a...>, gte<first>>::value>::value
             >::value;
 
 };

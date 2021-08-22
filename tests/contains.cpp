@@ -1,5 +1,5 @@
 #include <assert.h>
-#include "contains.h"
+#include "smtl/contains.h"
 
 using namespace std;
 using namespace smtl;
