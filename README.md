@@ -42,15 +42,19 @@ static_assert(std::is_same<vector<1,2,3>,reverse<vector<3,2,1>>::value>::value);
 ### Multiply elements in a templated vector
 
 [select.h](include/smtl/select.h) provides a template that will apply an operation to the 
-arguments of a templated vector
+arguments of a templated vector.  This example also uses [range.h](include/smtl/range.h) to generate
+a vector representing a sequence of ints.
 ```c++
 #include <smtl/select.h>
 #include <smtl/math.h>
+#include <smtl/range.h>
 #include <type_traits>
+
 using namespace smtl;
 
 static_assert(std::is_same<
-vector<2,4,6>,
-select<vector<1,2,3>, multiply<int, 2>>::value
->::value);
+    vector<2,4,6>,
+    select<range<1,4>::value, multiply<2>>::value
+    >::value);
 ```
+

@@ -1,4 +1,6 @@
 #include <smtl/math.h>
+#include <smtl/range.h>
+
 #include <type_traits>
 
 using namespace smtl;
