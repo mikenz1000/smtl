@@ -11,7 +11,7 @@ the elements of the vector
 ```c++
 #include "smtl/vector.h"
 using smtl;
-vector<1,2,3> v;
+vector<int, 1,2,3> v;
 ```
 
 ## Template metaprogramming QSort
@@ -21,8 +21,8 @@ the qsort algorithm
 ```c++
 #include "smtl/qsort.h"
 using smtl;
-static_assert(std::is_same<::smtl::qsort<vector<3,2,1>>::value, 
-                           vector<1,2,3>>::value
+static_assert(std::is_same<::smtl::qsort<vector<int, 3,2,1>>::value, 
+                           vector<int, 1,2,3>>::value
                            )
 ```
 
@@ -33,6 +33,21 @@ a templated vector.
 ```c++
 #include "smtl/reverse.h"
 using smtl;
-static_assert(std::is_same<vector<1,2,3>,reverse<vector<3,2,1>>::value>::value);
+static_assert(std::is_same<vector<int, 1,2,3>,reverse<int, vector<int, 3,2,1>>::value>::value);
 ```
 
+
+### Multiply elements in a templated vector
+
+See [select.h](include/smtl/select.h) for a template that will apply an operation to the 
+arguments of a templated vector
+```c++
+#include "smtl/select.h"
+#include "smtl/math.h"
+#include <type_traits>
+using smtl;
+static_assert(std::is_same<
+        vector<int, 2,4,6>,
+        select<int, vector<int, 1,2,3>, multiply<int, 2>>::value
+        >::value)
+```

@@ -3,7 +3,7 @@
 
 namespace smtl {
 
-template<int... I>
+template<typename T, T... i>
 struct vector {};
 
 }

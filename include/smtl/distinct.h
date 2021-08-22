@@ -5,25 +5,25 @@
 
 namespace smtl {
 
-template<typename input, typename output=vector<> >
+template<typename T, typename input, typename output=vector<T> >
         struct distinct;
 
 // template to remove first if a duplicate
-template<int first, int... remaining, int... output>
-struct distinct<vector<first, first, remaining...>, vector<output...>> {
-    using value = typename distinct<vector<remaining...>, vector<output..., first>>::value;
+template<typename T, T first, T... remaining, T... output>
+struct distinct<T, vector<T, first, first, remaining...>, vector<T, output...>> {
+    using value = typename distinct<T, vector<T, remaining...>, vector<T, output..., first>>::value;
 };
 
 // stopping condition
-template<int... output>
-struct distinct<vector<>, vector<output...>> {
-    using value = vector<output...>;
+template<typename T, T... output>
+struct distinct<T, vector<T>, vector<T,output...>> {
+    using value = vector<T, output...>;
 };
 
 // template to recurse normally
-template<int first, int... remaining, int... output>
-struct distinct<vector<first, remaining...>, vector<output...>> {
-    using value = typename distinct<vector<remaining...>, vector<output..., first>>::value;
+template<typename T, T first, T... remaining, T... output>
+struct distinct<T, vector<T, first, remaining...>, vector<T, output...>> {
+    using value = typename distinct<T, vector<T, remaining...>, vector<T, output..., first>>::value;
 };
 
 }

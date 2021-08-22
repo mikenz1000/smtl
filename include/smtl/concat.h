@@ -8,15 +8,15 @@ template<typename A, typename B>
 struct concat{};
 
 // match when sought at beginning of list
-template<int... allA, int firstB, int... restB>
-struct concat<vector<allA...>, vector<firstB, restB...>> {
-    using value = typename concat<vector<allA..., firstB>, vector<restB...>>::value;
+template<typename T, T... allA, T firstB, T... restB>
+struct concat<vector<T, allA...>, vector<T, firstB, restB...>> {
+    using value = typename concat<vector<T, allA..., firstB>, vector<T, restB...>>::value;
 };
 
 // terminator
-template<int... allA>
-struct concat<vector<allA...>, vector<>> {
-    using value = vector<allA...>;
+template<typename T, T... allA>
+struct concat<vector<T, allA...>, vector<T>> {
+    using value = vector<T, allA...>;
 };
 
 }

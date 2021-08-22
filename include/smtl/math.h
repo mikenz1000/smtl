@@ -1,11 +1,11 @@
 #ifndef SMTL_MATH_H
 #define SMTL_MATH_H
 
-template<int factor>
+template<typename T, T factor>
 struct multiply {
-    template<int target>
+    template<T target>
     struct apply {
-        static const int value = factor * target;
+        static const T value = factor * target;
     };
 };
 

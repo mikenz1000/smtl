@@ -7,6 +7,6 @@ using namespace smtl;
 
 
 static_assert(std::is_same<
-        vector<2,4,6>,
-        select<vector<1,2,3>, multiply<2>>::value
+        vector<int, 2,4,6>,
+        select<int, vector<int, 1,2,3>, multiply<int, 2>>::value
         >::value);
