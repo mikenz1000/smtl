@@ -10,24 +10,23 @@ namespace smtl {
 template<typename T>
 struct qsort;
 
-// terminator
+// terminator for empty vector
 template<>
 struct qsort<vector<>> {
     using value = vector<>;
 };
 
-// template to use during computation
+// terminator for single-element vector
 template<typename T, T first>
 struct qsort<vector<first>> {
     using value = vector<first>;
 };
 
 
-// template to use during computation
+// general case - choose first element as pivot, split and reassemble as:
+// sorted-left ... pivot ... sorted-right
 template<typename T, T first, T... a>
 struct qsort<vector<first, a...>> {
-
-    //    using split = Split< first, vector<first, a...> >;
 
     using value = typename concat<
             typename concat<
