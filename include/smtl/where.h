@@ -6,9 +6,7 @@
 
 namespace smtl {
 
-/*
- * filters a vector T using predicate pred
- */
+// filters a vector T using predicate pred
 template<typename Input, typename Pred, typename Output=vector<>>
 struct where;
 
