@@ -28,7 +28,7 @@ static_assert(std::is_same<::smtl::qsort<vector<9,4,5,3,2,6,7,1,8>>::value,
                            vector<1,2,3,4,5,6,7,8,9>>::value);
 ```
 
-### Reverse a vector template list
+## Reverse a vector template list
 
 See [reverse.h](include/smtl/reverse.h) for a template that will reverse the arguments of
 a templated vector.
@@ -41,7 +41,7 @@ static_assert(std::is_same<vector<1,2,3>,reverse<vector<3,2,1>>::value>::value);
 ```
 
 
-### Multiply elements in a templated vector
+## Multiply elements in a templated vector
 
 [select.h](include/smtl/select.h) provides a template that will apply an operation to the 
 arguments of a templated vector.  This example also uses [range.h](include/smtl/range.h) to generate
