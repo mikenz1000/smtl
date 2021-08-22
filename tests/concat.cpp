@@ -1,5 +1,5 @@
 #include <assert.h>
-#include "smtl/concat.h"
+#include <smtl/concat.h>
 
 using namespace smtl;
 using namespace std;

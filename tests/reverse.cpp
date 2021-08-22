@@ -1,5 +1,5 @@
 #include <assert.h>
-#include "smtl/reverse.h"
+#include <smtl/reverse.h>
 
 using namespace smtl;
 

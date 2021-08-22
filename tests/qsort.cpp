@@ -1,4 +1,4 @@
-#include "smtl/qsort.h"
+#include <smtl/qsort.h>
 
 #include <assert.h>
 #include <iostream>
