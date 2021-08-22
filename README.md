@@ -16,8 +16,10 @@ vector<1,2,3> v;
 
 ## Template metaprogramming QSort
 
-See [qsort.h](include/smtl/qsort.h) for a template that will sort a templated vector using
-the qsort algorithm
+See [qsort.h](include/smtl/qsort.h) for a fairly readable template that will sort a templated vector using
+the qsort algorithm.  It uses [concat.h](include/smtl/concat.h) to concatenate sub-vectors during computation 
+and [where.h](include/smtl/where.h) to filter the left and right sub-vectors on basis of elements being
+less-than or greater-than-or-equal the pivot.
 ```c++
 #include <smtl/qsort.h>
 using namespace smtl;
