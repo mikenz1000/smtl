@@ -31,10 +31,10 @@ struct qsort<vector<T, first, a...>> {
 
     using value = typename concat<
             typename concat<
-            typename qsort<typename where<T, vector<T, a...>, lt<T, first>>::value>::value,
+            typename qsort<typename where<vector<T, a...>, lt<T, first>>::value>::value,
             vector<T, first>
             >::value,
-            typename qsort<typename where<T, vector<T, a...>, gte<T, first>>::value>::value
+            typename qsort<typename where<vector<T, a...>, gte<T, first>>::value>::value
             >::value;
 
 };
