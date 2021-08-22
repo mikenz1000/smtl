@@ -3,8 +3,9 @@
 
 namespace smtl {
 
-template<int... I>
-struct vector {};
+template<auto... i>
+struct vector {
+};
 
 }
 

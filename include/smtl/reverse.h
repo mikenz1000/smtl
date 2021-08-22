@@ -1,20 +1,18 @@
 #ifndef SMTL_REVERSE_H
 #define SMTL_REVERSE_H
+#include "vector.h"
 
 namespace smtl {
 
-template<int... I>
-struct vector {};
-
 template<typename Input, typename Output = vector<>>
-        struct reverse{};
+struct reverse{};
 
-template<int first, int... input, int...output>
+template<typename T, T first, T... input, T...output>
 struct reverse<vector<first, input...>, vector<output...>> {
     using value = typename reverse<vector<input...>, vector<first, output...>>::value;
 };
 
-template<int...output>
+template<typename T, T...output>
 struct reverse<vector<>, vector<output...>> {
     using value = vector<output...>;
 };

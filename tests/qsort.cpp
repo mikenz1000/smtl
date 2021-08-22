@@ -1,8 +1,5 @@
 #include <smtl/qsort.h>
 
-#include <assert.h>
-#include <iostream>
-
 using namespace smtl;
 
 static_assert(std::is_same<::smtl::qsort<vector<2,1>>::value, vector<1,2>>::value);

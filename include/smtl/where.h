@@ -9,10 +9,10 @@ namespace smtl {
 /*
  * filters a vector T using predicate pred
  */
-template<typename T, typename pred, typename Output=vector<>>
+template<typename Input, typename Pred, typename Output=vector<>>
 struct where;
 
-template<int first, int... i, int... o, typename pred>
+template<typename T, T first, T... i, T... o, typename pred>
 struct where<vector<first, i...>, pred, vector<o...>> {
     using value = typename std::conditional<pred::template eval<first>::result,
         // if true, include first in output
@@ -23,24 +23,28 @@ struct where<vector<first, i...>, pred, vector<o...>> {
 };
 
 // terminator
-template<int... o, typename pred>
+template<typename T, T... o, typename pred>
 struct where<vector<>, pred, vector<o...>> {
     using value = vector<o...>;
 };
+template<typename pred>
+struct where<vector<>, pred, vector<>> {
+    using value = vector<>;
+};
 
 // less than comparison predicate
-template<int x>
+template<typename T, T x>
 struct lt {
-    template<int i>
+    template<T i>
     struct eval {
         static const bool result = i < x;
     };
 };
 
 // greater than or equal comparison predicate
-template<int x>
+template<typename T, T x>
 struct gte {
-    template<int i>
+    template<T i>
     struct eval {
         static const bool result = i >= x;
     };
